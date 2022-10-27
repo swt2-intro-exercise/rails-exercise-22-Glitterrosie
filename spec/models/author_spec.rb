@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Author, type: :model do
 
-    
-
     it "should exist with a first and last name and a homepage" do
 
         author = Author.new()
@@ -22,5 +20,5 @@ RSpec.describe Author, type: :model do
     it "shouldn't have an empty string as a last name" do
         nonValidAuthor = Author.new()
         expect(nonValidAuthor).to_not be_valid
-      end
+    end
 end

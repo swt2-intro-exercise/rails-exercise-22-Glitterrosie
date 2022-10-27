@@ -25,4 +25,19 @@ describe "New author page", type: :feature do
     page.find('input[type="submit"]').click
   end
 
+  it "should be an entry in the authors db after submitting a author form" do
+    visit new_author_path
+    # fill the input fields
+    page.fill_in 'author[first_name]', with: 'Ada'
+    page.fill_in 'author[last_name]', with: ''
+    page.fill_in 'author[homepage]', with: 'https://de.wikipedia.org/wiki/Ada_Lovelace'
+    # submitting the form
+    page.find('input[type="submit"]').click
+
+    expect(page).to have_text("Last name can't be blank")
+    expect(page).to have_text("Last name is too short (minimum is 1 character)")
+
+
+  end
+
 end
