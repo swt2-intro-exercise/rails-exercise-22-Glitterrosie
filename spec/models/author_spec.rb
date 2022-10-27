@@ -4,10 +4,11 @@ RSpec.describe Author, type: :model do
 
     it "should exist with a first and last name and a homepage" do
 
-        author = Author.new()
-        author.first_name = 'Alan'
-        author.last_name = 'Turing'
-        author.homepage = 'http://wikipedia.org/Alan_Turing'
+        author = Author.new(first_name: 'Alan',last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing'
+        )
+        #author.first_name = 'Alan'
+        #author.last_name = 'Turing'
+        #author.homepage = 'http://wikipedia.org/Alan_Turing'
 
         expect(author.first_name).to eq('Alan')
         expect(author.last_name).to eq('Turing')
@@ -15,7 +16,6 @@ RSpec.describe Author, type: :model do
         expect(author.name()).to eq('Alan Turing')
     end
 
-    
 
     it "shouldn't have an empty string as a last name" do
         nonValidAuthor = Author.new()
