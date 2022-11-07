@@ -35,4 +35,11 @@ describe "New paper page", type: :feature do
     expect(page).to have_text("Title can't be blank")
   end
 
+  it "should have an empty list of authors" do
+    paper = FactoryBot.create :paper
+    expect(paper.authors).to match_array([])
+    #puts(paper.authors)
+    
+  end
+
 end
