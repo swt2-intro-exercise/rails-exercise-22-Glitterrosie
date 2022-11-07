@@ -29,4 +29,9 @@ describe "paper index page", type: :feature do
         expect(page).to have_link 'New paper', href: new_paper_path
     end
 
+    it "should have a link to add a new paper" do
+        visit papers_url
+        expect(page).to have_link 'Edit this paper', href: edit_paper_path(paper)
+    end
+
 end
