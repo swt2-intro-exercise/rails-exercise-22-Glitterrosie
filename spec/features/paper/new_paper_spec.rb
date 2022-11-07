@@ -38,7 +38,6 @@ describe "New paper page", type: :feature do
   it "should have an empty list of authors" do
     paper = FactoryBot.create :paper
     expect(paper.authors).to match_array([])
-    #puts(paper.authors)
     
   end
 
