@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "New paper page", type: :feature do
 
+  paper1 = FactoryBot.create :paper1
+
   it "should exist at 'new_paper_path' and render withour error" do
     visit new_paper_path
   end
@@ -36,8 +38,8 @@ describe "New paper page", type: :feature do
   end
 
   it "should have an empty list of authors" do
-    paper = FactoryBot.create :paper
-    expect(paper.authors).to match_array([])
+    visit edit_paper_path(paper1)
+    expect(paper1.authors).to match_array([])
     
   end
 

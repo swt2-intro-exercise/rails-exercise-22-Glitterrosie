@@ -23,5 +23,10 @@ describe "paper show page", type: :feature do
         expect(page).to have_link "Back to papers", href: papers_path
     end
 
+    it "should display all authors full names" do
+        visit paper_path(paper)
+        expect(page).to have_text "Alan Turing"
+    end
+
 
 end
