@@ -23,4 +23,16 @@ describe "New paper page", type: :feature do
     page.find('input[type="submit"]').click
   end
 
+  it "should appear an error if the title is blank" do
+    visit new_paper_path
+    # fill the input fields
+    page.fill_in 'paper[title]', with: ''
+    page.fill_in 'paper[venue]', with: 'Berlin'
+    page.fill_in 'paper[year]', with: '2022'
+    # submitting the form
+    page.find('input[type="submit"]').click
+
+    expect(page).to have_text("Title can't be blank")
+  end
+
 end
