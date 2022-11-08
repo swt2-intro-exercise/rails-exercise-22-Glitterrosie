@@ -30,4 +30,12 @@ describe "paper index page", type: :feature do
         expect(page).to have_link 'Delete', href: paper_path(paper)
     end
 
+    it "should have the ability to filter for years" do
+        paper1 = FactoryBot.create :paper1
+        visit papers_url
+        expect(page).to have_link 'Show this paper', href: paper_path(paper)
+        expect(page).to have_link 'Show this paper', href: paper_path(paper1)
+    end
+
+
 end
